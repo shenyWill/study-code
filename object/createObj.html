@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 字面量方式创建
+        var book = {
+            "main title":"JavaScript",   // 属性名中间有空格，必须使用字符串表示属性名
+            "sub-title":"The Code",      // 属性名中间有连字符，必须使用字符串表示属性名
+            "for":"study",               // 属性名是关键字，必须使用字符串表示属性名
+            name:'shenyuan'
+        }
+
+        // 构造函数的方式
+        var obj = new Object();          // 创建一个空对象，和{}一样
+        var arr = new Array();           // 创建一个空数组，和[]一样
+        var date = new Date();           // 创建一个表示当前时间的Date对象
+
+        // Object.create()函数创建 --> 第一个参数表示这个对象的原型，第二个可选参数表示对对象的属性进行描述
+        var obj1 = Object.create({x:1,y:2});   // 继承了属性x和y
+        var obj2 = Object.create(null);        // obj2不继承任何属性和方法
+        var obj3 = Object.create(Object.prototype);  // obj3和{}以及 new Object()一样
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
