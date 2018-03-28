@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    /*
+     * 稀疏数组就是包含从0开始的不连续数组的索引
+     * 通常，数组的length代表数组的元素个数，但是如果数组是稀疏的，length大于数组的元素
+    */
+    let arr1 = new Array(5);        // 数组没有元素，但是arr1.length = 5；
+
+    let arr2 = [];                  // 创建一个空数组，length = 0
+    arr2[1000] = 1;                 // 这样，只有第1001个元素有值，但是length为1001
+
+    /*
+     * 在数组直面量中使用,不会创建稀疏数组。省略的元素在数组中是存在的，值为undefined
+    */
+    let arr3 = [,,,];               // 数组为[undefined,undefined,undefined]
+    let arr4 = new Array(3)         // 数组没有任何元素
+    0 in arr3;                      // true
+    0 in arr4;                      // false
+
+    /*
+     * 可以通过delete方法将一个数组变为稀疏数组
+     * 注意，delete不会修改数组的length值，也不会将元素从高索引移下来填充已删除的空白
+    */
+    let arr5 = [1,2,3,4,5,6];
+    delete arr5[2];                 // arr5 = [1, 2, empty, 4, 5, 6]
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

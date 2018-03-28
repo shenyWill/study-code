@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var arr = [1,2,3,4,5,6,7,8];
+
+        // 一般使用for循环去循环数组
+        for(var i = 0; i < arr.length; i++) {
+            //...
+        }
+
+        // 在嵌套循环或者其他性能非常重要的上下文中，这样的遍历需要优化，因为数组的长度只需要查询一次就好
+        for(var i =0, len = arr.length; i < len; i++) {
+            //...
+        }
+
+        // 上面两个循环是假设数组是稠密的，并且所有元素是合法的，所以，我们在使用之前应该检查他们 、
+        for(var i =0, len = arr.length; i < len; i++) {
+            if(!arr[i]){        // 跳过null、undefined和不存在的元素
+                continue
+            }else {
+                //...
+            }
+        }
+
+        for(var i =0, len = arr.length; i < len; i++) {
+            if(arr[i] === undefined){        // 跳过undefined和不存在的元素
+                continue
+            }else {
+                //...
+            }
+        }
+
+        for(var i =0, len = arr.length; i < len; i++) {
+            if(!(i in arr)){        // 跳过不存在的元素
+                continue
+            }else {
+                //...
+            }
+        }
+
+
+        // 我们还可以通过for/in循环去处理稀疏数组
+        for(var i in arr){
+            //...
+        }
+
+        //for/in循环能够枚举继承的属性，如添加到Array.prototype中的方法。由于这个原因，我们需要进行检测
+        for(var i in arr) {
+            if(!arr.hasOwnProperty(i)){
+                continue
+            }else {
+                //...
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
