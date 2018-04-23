@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var ulNode = document.getElementsByTagName('ul')[0];
+            var hasLiNode = document.getElementsByTagName('li')[0];
+            var newLiNode = document.createElement('li');
+            newLiNode.textContent = '我是插入的第一个li元素';
+            ulNode.insertBefore(newLiNode,hasLiNode);
+
+            var boxNode = document.getElementsByClassName('box')[0];
+            var newBoxNode = document.createElement('div');
+            newBoxNode.textContent = '我是插入的第一个div';
+            document.body.insertBefore(newBoxNode,boxNode);
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>我是原始的第一个元素，将来会有元素插入在我前面</li>
+    </ul>
+
+    <div class="box">
+        我是原始的第一个div，将会有元素插入在我前面
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var ulNode = document.getElementsByTagName('ul')[0];
+            var liNode = document.createElement('li');
+            liNode.textContent = '我是添加到末尾的元素';
+            ulNode.appendChild(liNode)
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>我是第一个元素</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            /* 一般删除节点会封装一个这种方法 */
+            function removeElement(element) {
+                if(!element) return;
+                if(element.parentNode) element.parentNode.removeChild(element);
+            }
+            var ulNode = document.getElementsByTagName('ul')[0];
+            var liNode = document.getElementsByTagName('li')[0];
+            // ulNode.removeChild(liNode);
+            removeElement(liNode);
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>我是第一个li</li>
+        <li>我是第二个li</li>
+    </ul>
+</body>
+</html>
