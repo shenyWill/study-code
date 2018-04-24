@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function mostWord(str){
+            var obj = {};
+            if(typeof str !== 'string') {
+                console.log('请输入有效字符');
+                return;
+            }
+            for(var i = 0; i < str.length; i++) {
+                if(!obj[str.charAt(i)]) {
+                    obj[str.charAt(i)] = 1;
+                }else {
+                    obj[str.charAt(i)] += 1;
+                }
+            }
+            var maxWord = '';
+            var maxNum = 0;
+            for(var item in obj) {
+                if (obj[item] > maxNum) {
+                    maxNum = obj[item];
+                    maxWord = item;
+                }
+            }
+            console.log(maxWord + ':' + maxNum);
+        }
+
+        var letter = 'dasdasdwefvwegrbnnhrgbefvwdcsxasdasadadasdadssssssaaaaaaaaaaaa';
+        mostWord(letter)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

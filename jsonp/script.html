@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <button id="btn">点击跨域</button>
+    </div>
+    <script>
+        
+        var btnNode = document.getElementById('btn');
+        btnNode.onclick = function() {
+            var scriptNode = document.createElement('script');
+            scriptNode.src = 'https://api.douban.com/v2/book/search?q=javascript&count=1&callback=handleResponse';
+            document.body.insertBefore(scriptNode,document.body.firstChild);
+        }
+
+        function handleResponse(data) {
+            console.log(data)
+        }
+    </script>
+</body>
+</html>
