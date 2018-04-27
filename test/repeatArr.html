@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /* 第一种方式 */
+        function firstRepeat(arr) {
+            let newArr = [];
+            let obj = [];
+            for(let i of arr) {
+                if(!obj[i]) {
+                    obj[i] = 1;
+                    newArr.push(i);
+                }
+            }
+            console.log(newArr);
+        }
+
+        /* 第二种方式 */
+        function secondRepeat(arr) {
+            let newArr = [];
+            for(var i of arr) {
+                if(newArr.indexOf(i) < 0) {
+                    newArr.push(i);
+                }
+            }
+            console.log(newArr);
+        }
+
+        /* 第三种方式 */
+        function thirdRepeat(arr) {
+            let newArr = arr.filter(function(value,index,self){
+                return index == self.indexOf(value)
+            });
+            console.log(newArr);
+        }
+        let arr = [1,2,3,6,2,4,12,76,21,12,3,4,5];
+        thirdRepeat(arr)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

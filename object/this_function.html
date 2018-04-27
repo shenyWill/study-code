@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function foo(num) {
+            console.log(num);
+            console.log(this.count)     // this指向的是window对象，此时并没有定义count，所以打印出来是undefined
+            this.count++;               // 这个时候会给window对象下定义一个变量count，值为NaN，所以++以后还是NaN
+            console.log(this);
+            // console.log(this.count)
+        }
+        foo.count = 0;
+        for(var i = 5; i <10; i++) {
+            foo(i)
+        }
+        // console.log(foo.count);
+        // console.log(count);
+        // console.log(window.count)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

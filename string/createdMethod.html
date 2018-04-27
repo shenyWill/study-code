@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var str1 = 'i am a word';
+        console.log(typeof str1);               // string
+        console.log(str1 instanceof String);    // false 原因在于字面量创建的只是基本类型中的string，并不是String对象
+        var len = str1.length;                  // 这个时候会自动把string的字面量转换成String对象，才能得到length属性，但是下面并不会改变str1是string的事实
+        console.log(str1 instanceof String);    // false
+        console.log(Object.prototype.toString.call(str1));  // [object String]  -->个人认为这种方式可以判断是否为字符串
+
+        var str2 = new String('i am a word');   
+        console.log(typeof str2);               // object
+        console.log(str2 instanceof String);    // true
+        console.log(Object.prototype.toString.call(str2));  // [object String]
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

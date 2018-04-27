@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script>
+        function foo(num) {
+            console.log(num);
+
+            this.count++;
+        }
+        foo.count = 0;
+
+        for(var i = 5; i <10; i++) {
+            foo.call(foo,i);
+        }
+        console.log(foo.count);
+        
+    </script>
 </head>
 <body>
-    <div class="box">按下</div>
-    <div class="box box1">aaa</div>
-    <script>
-       var a = 1;
-       var a = 2;
-       console.log(a)
-    </script>
+    
 </body>
 </html>
