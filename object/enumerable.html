@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var obj = {};
+        Object.defineProperty(obj,'name',{
+            value:'shenyuan',
+            enumerable:true
+        });
+        Object.defineProperty(obj,'age',{
+            value:23,
+            enumerable:false
+        });
+
+        /*
+         * 这两种方式都可以检测出来age其实是obj的自有属性
+        */
+        console.log('age' in obj);                  // true
+        console.log(obj.hasOwnProperty('age'));     // true
+
+        /*
+         * for循环会发现age属性并不会被循环出来
+        */
+        for(var item in obj) {
+            console.log('属性名：' + item + ';  属性值：' + obj[item]);
+        }
+        
+        /*
+         * 可以通过propertyIsEnumerable()方法来判断属性是否可枚举
+        */
+        console.log(obj.propertyIsEnumerable('name'))   // true
+        console.log(obj.propertyIsEnumerable('age'))    // false
+
+        /*
+         * Object.keys(..) 会返回一个数组， 包含所有可枚举属性， 
+         * Object.getOwnPropertyNames(..) 会返回一个数组， 包含所有属性， 无论它们是否可枚举。
+        */
+        console.log(Object.keys(obj));      // ["name"]
+        console.log(Object.getOwnPropertyNames(obj))    // ["name", "age"]
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

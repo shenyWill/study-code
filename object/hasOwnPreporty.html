@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*
+         * in 操作符会检查属性是否在对象及其 [[Prototype]] 原型链中
+         * hasOwnProperty(..) 只会检查属性是否在 myObject 对象中
+        */
+        var obj = {
+            'name':'shenyuan'
+        };
+        console.log('name' in obj);                 // true
+        console.log(obj.hasOwnProperty('name'));    // true
+
+
+        function People(name) {
+            this.name = name
+        }
+        People.prototype.age = 18;
+
+        var people = new People('shenyuan');
+        console.log('name' in people);              // true
+        console.log(people.hasOwnProperty('name')); // true
+        console.log('age' in people);               // true
+        console.log(people.hasOwnProperty('age'));  // false
+
+        /*
+         * 当对象没有连接到 Object.prototype的时候，使用obj.hanOwnProperty()会失败
+         * 这时候我们可以使用更加强硬的方式：Object.portotype.hasOwnProperty.call()的方式
+        */
+        var nullObj = Object.create(null);  // 这是一个没有原型链的对象
+        nullObj.name = 'will';
+        console.log(nullObj);
+        console.log('name' in nullObj);     // true
+        // console.log(nullObj.hasOwnProperty('name'));    // 会报错Uncaught TypeError: nullObj.hasOwnProperty is not a function
+        console.log(Object.prototype.hasOwnProperty.call(nullObj,'name'));  //true
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
