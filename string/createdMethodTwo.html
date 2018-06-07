@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*
+         * 字面量方式创建字符串的时候，其实它就是一个基本的字符串类型，当调用.len增加属性的时候，会临时的创建一个String对象
+         * ，然后给这个对象增加len属性，但是增加完又马上销毁了这个属性，所以str.len是undefined，通过===可以看出原始值
+         * 和包装对象的不同
+        */
+        var str = 'sss';
+        var str1 = new String('sss');
+        console.log(str == str1)  //true 
+        console.log(str === str1) //false
+        str.len = 3;
+        str1.len = 3;
+        console.log(str.len)  //undefined
+        console.log(str1.len) //3
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -18,7 +18,7 @@
     /*
      * 在数组直面量中使用,不会创建稀疏数组。省略的元素在数组中是存在的，值为undefined
     */
-    let arr3 = [,,,];               // 数组为[undefined,undefined,undefined]
+    let arr3 = [,,,];               // 数组为[undefined,undefined,undefined] ==>有问题
     let arr4 = new Array(3)         // 数组没有任何元素
     0 in arr3;                      // true
     0 in arr4;                      // false
