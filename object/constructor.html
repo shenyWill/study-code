@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 定义一个构造函数-->范围类
+        function Range(from, to) {
+            this.from = from;
+            this.to = to;
+        }
+
+        // 所有的范围类继承自这个原型对象
+        Range.prototype = {
+            // constructor: Range, // 因为重写了原型对象，所以加上这个才能Range.prototype.constructor === Range
+            includes: function (x) {
+                return this.from <= x && this.to >= x
+            },
+            foreach: function (f) {
+                for (var x = Math.ceil(this.from); x <= this.to; x++) {
+                    f(x)
+                }
+            },
+            toString: function () {
+                return '(' + this.from + '...' + this.to + ')'
+            }
+        }
+
+        // 如果不重写constructor属性，另一种常见的做法是扩展预定义的Range.prototype对象
+        // Range.prototype.includes = function (x) {
+        //     return this.from <= x && this.to >= x
+        // }
+        // Range.prototype.foreach = function (f) {
+        //     for (var x = Math.ceil(this.from); x <= this.to; x++) {
+        //         f(x)
+        //     }
+        // }
+        // Range.prototype.toString = function () {
+        //     return '(' + this.from + '...' + this.to + ')'
+        // }
+        // Math.prototype.haha = function() {
+        //     console.log(111)
+        // }
+
+        // 对于instanceof 左操作数是待检测其类的对象，有操作数是定义类的构造函数，如果o继承自c.prototype，则表达式o instanceof c 就是true
+        var r = new Range(1,3);
+        r instanceof Range // true
+        
+        r.__proto__ = {}
+        console.log(r instanceof Range) // false
+
+        r.from  // 1 只是改变了r对象的原型指向，本身的属性还是存在的
+
+        r.__proto__ = Range.prototype
+        r instanceof Range // true
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
