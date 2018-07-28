@@ -5,21 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script>
+        function Foo() {
+            getName = function(){console.log(1)}
+            return this;
+        }
+        Foo.getName = function(){console.log(2)}
+        Foo.prototype.getName = function() {console.log(3)}
+        var getName = function() {console.log(4)}
+        function getName() {console.log(5)}
+
+        Foo.getName();
+        getName();
+        Foo.getName();
+        getName();
+        new Foo.getName();
+        new Foo().getName();
+    </script>
 </head>
 <body>
-    <div class="box">
-        <input type="checkbox" name="hobby" value="1">1
-        <input type="checkbox" name="hobby" value="2">2
-        <input type="checkbox" name="hobby" value="3">3
-        <input type="checkbox" name="hobby" value="4">4
-        <input type="checkbox" name="hobby" value="5">5
-        <input type="checkbox" name="hobby" value="6">6
-        <input type="checkbox" name="hobby" value="7">7
-    </div>
-    <script>
-       var domns = document.querySelectorAll('.box input');
-       domns.forEach(value => console.log(value))
-      
-    </script>
+   
 </body>
 </html>

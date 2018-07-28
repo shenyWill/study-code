@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // match() 是最常用的String正则表达式方法，唯一参数是一个正则表达式，返回一个数组，该数组包含字符串中的所有匹配结果
+        let returnArr = "1 plus 2 equals 3".match(/\d/g)
+        console.log(returnArr)
+
+        // match()如果不是全局检索，则数组第一个数是完整匹配，后面一次是子表达式
+        var url = /(\w+):\/\/([\w.]+)\/(\S*)/;
+        var text = 'Visit my blog at http://www.example.com/~david';
+        var result = text.match(url);
+        console.log(result)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

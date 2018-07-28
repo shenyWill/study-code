@@ -50,7 +50,7 @@
         r instanceof Range // true
         
         r.__proto__ = {}
-        console.log(r instanceof Range) // false
+        r instanceof Range // false
 
         r.from  // 1 只是改变了r对象的原型指向，本身的属性还是存在的
 
