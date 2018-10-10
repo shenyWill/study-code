@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var obj = {};
+        var obj1 ={};
+
+        Object.defineProperty(obj, "a", {
+            value: 'aaaaa',
+            writable: true,
+            configurable: false,
+            enumerable: false
+        })
+        console.log(obj);
+        console.log("a" in obj);
+        console.log(Object.keys(obj));
+        console.log(Object.getOwnPropertyNames(obj));
+
+        Object.defineProperties(obj1, {
+            a: {value: '111', writable: true, configurable: true, enumerable: false},
+            b: {value: '222', writable: false},
+            c: {get: function(){return this.a + this.b},enumerable:true}
+        })
+        console.log(obj1);
+        console.log("a" in obj1);
+        console.log(Object.keys(obj1));
+        console.log(Object.getOwnPropertyNames(obj1));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
