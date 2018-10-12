@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var out = function outer(){
+            /* 内部函数只能内部调用 外面不可以调用 */
+            var inn = function inner(){
+                console.log("inner");
+            }
+            console.log("outer");
+            inn();
+            // inner();
+        }
+        out();
+        outer();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

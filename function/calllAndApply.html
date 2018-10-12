@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var dog = {
+            name: 'dog',
+            speak: function(s){
+                console.log(this.name + '...' + s);
+            }
+        }
+        var cat = {
+            name: 'cat'
+        }
+        dog.speak();
+        dog.speak.call(dog, 'this is dog');
+        dog.speak.call(cat, 'this is cat');
+        dog.speak.apply(dog,['this is dog']);
+        dog.speak.apply(cat, ['this is cat']);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
