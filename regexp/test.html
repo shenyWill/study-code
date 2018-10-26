@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        let num = '123-456-1231 908s123.456.7890 80asdf(212)867-5509'
+        let pattern1 = /\(?\d{3}[-.)]\d{3}[-.]\d{4}/g;
+        let pattern2 = /\(?\d{3}[-.)]\d{3}[.-]\d{4}/g;
+        let pattern =  /\(?\d{3}[.-)]\d{3}[.-]\d{4}/g;
+        let b = num.match(pattern);
+        console.log(b);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
